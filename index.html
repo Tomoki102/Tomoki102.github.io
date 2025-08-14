@@ -1,1 +1,112 @@
-<link rel="canonical" href="https://<ユーザー名>.github.io/">
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Tomoki Takahashi | Research</title>
+  <meta name="description" content="Battery research | Portfolio & research notes."/>
+  <link rel="canonical" href="https://tomoki102.github.io/"/>
+  <style>
+    :root{--bg:#0b1020;--fg:#e9eef5;--muted:#a9b4c3;--acc:#62d2ff;--card:#131a2e}
+    html,body{height:100%}
+    body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Hiragino Kaku Gothic ProN",Meiryo,"Noto Sans JP",Arial,sans-serif;color:var(--fg);background:radial-gradient(1200px 800px at 10% 0%, #112, var(--bg))}
+    a{color:var(--acc);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{max-width:980px;margin:0 auto;padding:20px}
+    header{position:sticky;top:0;backdrop-filter:blur(6px);background:rgba(11,16,32,.6);border-bottom:1px solid rgba(255,255,255,.06);z-index:10}
+    nav{display:flex;justify-content:space-between;align-items:center}
+    .brand{font-weight:700;letter-spacing:.2px}
+    .navlinks a{margin-left:16px;font-size:14px;color:var(--muted)}
+    .hero{display:grid;grid-template-columns:1fr 2fr;gap:24px;align-items:center;padding:28px 0}
+    .avatar{width:140px;height:140px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,.2);box-shadow:0 6px 20px rgba(0,0,0,.35)}
+    h1{font-size:32px;margin:8px 0 6px}
+    .lead{color:var(--muted)}
+    .links{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px}
+    .btn{border:1px solid rgba(255,255,255,.16);padding:8px 12px;border-radius:12px;display:inline-flex;align-items:center;gap:8px;background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02))}
+    .section{padding:22px 0}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .card{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:16px}
+    .card h3{margin:.2rem 0 .5rem;font-size:18px}
+    .mono{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;color:var(--muted)}
+    details{background:var(--card);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:12px}
+    details>summary{cursor:pointer;font-weight:600}
+    footer{color:var(--muted);border-top:1px solid rgba(255,255,255,.06);margin-top:28px;padding:16px 0}
+    @media (max-width:860px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <nav>
+      <div class="brand">Tomoki Takahashi</div>
+      <div class="navlinks">
+        <a href="#profile">Profile</a>
+        <a href="#motivation">Motivation</a>
+        <a href="#links">Links</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <section class="hero" id="profile">
+    <div>
+      <img class="avatar" src="/assets/profile.jpg" alt="Profile photo"/>
+    </div>
+    <div>
+      <h1>Battery Researcher</h1>
+      <p class="lead">電極–電解液界面、Na/Liイオン電池の劣化メカニズム、データ駆動の実験設計に関心があります。</p>
+      <div class="links" id="links">
+        <a class="btn" href="https://orcid.org/0000-0000-0000-0000" target="_blank" rel="noreferrer">ORCID</a>
+        <a class="btn" href="https://www.researchgate.net/profile/Your-Name" target="_blank" rel="noreferrer">ResearchGate</a>
+        <a class="btn" href="mailto:you@example.com">Email</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="grid">
+      <div class="card">
+        <h3>経歴（例）</h3>
+        <ul>
+          <li>2023– 現在：XX大学・博士課程（蓄電池化学）</li>
+          <li>2021–2023：XX研究室・修士</li>
+          <li>2017–2021：XX大学・学士（材料）</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>研究キーワード</h3>
+        <p>Hard carbon, CEI/SEI, Mnクロストーク, EIS, XPS, Cryo-TEM</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="motivation">
+    <h2>Research Motivation</h2>
+    <details>
+      <summary>開く / 閉じる</summary>
+      <p style="margin-top:8px">社会実装に耐える安全で頑健な二次電池を実現するため、正極由来TMの負極劣化への影響を材料特性の観点から一般化し、設計指針を導出することを目指しています。</p>
+    </details>
+  </section>
+
+  <section class="section">
+    <div class="card">
+      <h3>連絡先・その他リンク</h3>
+      <ul>
+        <li>GitHub: <a href="https://github.com/tomoki102" target="_blank" rel="noreferrer">@tomoki102</a></li>
+        <li>CV（PDF）: <a href="/assets/cv.pdf" target="_blank" rel="noreferrer">/assets/cv.pdf</a></li>
+      </ul>
+      <p class="mono">画像は <code>/assets/profile.jpg</code> に置いてください。</p>
+    </div>
+  </section>
+
+  <footer>
+    <small>© <span id="year"></span> Tomoki Takahashi. Built on GitHub Pages.</small>
+  </footer>
+</main>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

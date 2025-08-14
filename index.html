@@ -7,37 +7,90 @@
   <meta name="description" content="Battery research | Portfolio & research notes."/>
   <link rel="canonical" href="https://tomoki102.github.io/"/>
   <style>
-    :root {
-  --bg: #f9f9f9;        /* 背景色（明るい） */
-  --fg: #222222;        /* 文字色（濃い灰〜黒） */
-  --muted: #555555;     /* サブ文字色（中間灰） */
-  --acc: #0066cc;       /* アクセント色（青系） */
-  --card: #ffffff;      /* カード背景（白） */
-}
+    /* ── 配色（白基調） ────────────────────────────── */
+    :root{
+      --bg:#f9f9f9;      /* 背景（明） */
+      --fg:#222222;      /* 文字（濃） */
+      --muted:#555555;   /* サブ文字 */
+      --acc:#0066cc;     /* アクセント */
+      --card:#ffffff;    /* カード背景 */
+    }
+
+    /* 既存レイアウトはそのまま、暗色前提の色だけ置換 */
     html,body{height:100%}
-    body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Hiragino Kaku Gothic ProN",Meiryo,"Noto Sans JP",Arial,sans-serif;color:var(--fg);background:radial-gradient(1200px 800px at 10% 0%, #112, var(--bg))}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Hiragino Kaku Gothic ProN",Meiryo,"Noto Sans JP",Arial,sans-serif;
+      color:var(--fg);
+      background:var(--bg); /* 黒系グラ→単色へ */
+    }
     a{color:var(--acc);text-decoration:none}
     a:hover{text-decoration:underline}
+
     .container{max-width:980px;margin:0 auto;padding:20px}
-    header{position:sticky;top:0;backdrop-filter:blur(6px);background:rgba(11,16,32,.6);border-bottom:1px solid rgba(255,255,255,.06);z-index:10}
+
+    /* ヘッダーの透過色を白系に、境界線も黒系の薄い色に */
+    header{
+      position:sticky;top:0;
+      backdrop-filter:blur(6px);
+      background:rgba(255,255,255,.85);
+      border-bottom:1px solid rgba(0,0,0,.08);
+      z-index:10
+    }
     nav{display:flex;justify-content:space-between;align-items:center}
     .brand{font-weight:700;letter-spacing:.2px}
     .navlinks a{margin-left:16px;font-size:14px;color:var(--muted)}
+
     .hero{display:grid;grid-template-columns:1fr 2fr;gap:24px;align-items:center;padding:28px 0}
-    .avatar{width:140px;height:140px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,.2);box-shadow:0 6px 20px rgba(0,0,0,.35)}
+
+    /* アバターの縁と影を明色向けに */
+    .avatar{
+      width:140px;height:140px;border-radius:50%;object-fit:cover;
+      border:2px solid rgba(0,0,0,.08);
+      box-shadow:0 6px 20px rgba(0,0,0,.10)
+    }
+
     h1{font-size:32px;margin:8px 0 6px}
     .lead{color:var(--muted)}
     .links{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px}
-    .btn{border:1px solid rgba(255,255,255,.16);padding:8px 12px;border-radius:12px;display:inline-flex;align-items:center;gap:8px;background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02))}
+
+    /* ボタンの境界と背景を白基調で */
+    .btn{
+      border:1px solid rgba(0,0,0,.12);
+      padding:8px 12px;border-radius:12px;
+      display:inline-flex;align-items:center;gap:8px;
+      background:linear-gradient(180deg, rgba(0,0,0,.02), rgba(0,0,0,.01))
+    }
+
     .section{padding:22px 0}
     .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-    .card{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:16px}
+
+    /* カード/Detailsの枠線を黒系の薄い色に変更 */
+    .card{
+      background:var(--card);
+      border:1px solid rgba(0,0,0,.08);
+      border-radius:16px;padding:16px
+    }
     .card h3{margin:.2rem 0 .5rem;font-size:18px}
     .mono{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;color:var(--muted)}
-    details{background:var(--card);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:12px}
+    details{
+      background:var(--card);
+      border:1px solid rgba(0,0,0,.08);
+      border-radius:12px;padding:12px
+    }
     details>summary{cursor:pointer;font-weight:600}
-    footer{color:var(--muted);border-top:1px solid rgba(255,255,255,.06);margin-top:28px;padding:16px 0}
-    @media (max-width:860px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:1fr}}
+
+    /* フッターの境界線も置換 */
+    footer{
+      color:var(--muted);
+      border-top:1px solid rgba(0,0,0,.08);
+      margin-top:28px;padding:16px 0
+    }
+
+    @media (max-width:860px){
+      .hero{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr}
+    }
   </style>
 </head>
 <body>

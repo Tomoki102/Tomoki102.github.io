@@ -34,25 +34,46 @@
     .brand{font-weight:700;letter-spacing:.2px}
     .navlinks a{margin-left:16px;font-size:14px;color:var(--muted)}
 
-    /* ── 要求レイアウト：PC幅では
-         左上=写真、右上=名前+リンク+Profile、下段=Motivation と Links ── */
-    .layout{display:grid;grid-template-columns:1fr 2fr;gap:24px;padding:28px 0;
+    /* ── レイアウト：PC幅では
+       左上=写真、右上=名前+リンク+Profile、下段=Motivation と Links ── */
+    .layout{
+      display:grid;gap:24px;padding:28px 0;
+      grid-template-columns:1fr 2fr;
       grid-template-areas:
-      "photo head"
-      "photo profile"
-      "motivation motivation"
-      "links links";
+        "photo head"
+        "photo profile"
+        "motivation motivation"
+        "links links";
+      align-items:stretch; /* 左列(photo)を行全体にストレッチ */
     }
-    .photo{grid-area:photo}
+    .photo{grid-area:photo; align-self:stretch;}
     .head{grid-area:head}
     .profile{grid-area:profile}
     .motivation{grid-area:motivation}
     .links-section{grid-area:links}
 
-    .avatar{width:160px;height:160px;border-radius:50%;object-fit:cover;border:2px solid rgba(0,0,0,.08);box-shadow:0 6px 20px rgba(0,0,0,.10)}
+    /* 写真：長方形で左上の空間（head+profile）にフィット */
+    .avatar{
+      display:block;
+      width:100%;
+      height:100%;              /* 親(.photo)の高さに合わせる */
+      border-radius:8px;        /* 角丸。不要なら 0 に */
+      object-fit:cover;         /* トリミングしてエリアを埋める */
+      object-position:center;   /* 上寄せしたい場合は 'top' */
+      border:1px solid rgba(0,0,0,.08);
+      box-shadow:0 6px 20px rgba(0,0,0,.10);
+    }
+
     h1{font-size:32px;margin:8px 0 6px}
     .lead{color:var(--muted)}
     .links{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px}
+
+    .btn{
+      border:1px solid rgba(0,0,0,.12);
+      padding:8px 12px;border-radius:12px;
+      display:inline-flex;align-items:center;gap:8px;
+      background:linear-gradient(180deg, rgba(0,0,0,.02), rgba(0,0,0,.01));
+    }
 
     .card{background:var(--card);border:1px solid rgba(0,0,0,.08);border-radius:16px;padding:16px}
     .card h3{margin:.2rem 0 .5rem;font-size:18px}
@@ -63,14 +84,20 @@
     footer{color:var(--muted);border-top:1px solid rgba(0,0,0,.08);margin-top:28px;padding:16px 0}
 
     @media (max-width:860px){
-      .layout{grid-template-columns:1fr;grid-template-areas:
-        "head"
-        "photo"
-        "profile"
-        "motivation"
-        "links";
+      .layout{
+        grid-template-columns:1fr;
+        grid-template-areas:
+          "head"
+          "photo"
+          "profile"
+          "motivation"
+          "links";
       }
-      .avatar{width:140px;height:140px}
+      .avatar{
+        width:100%;
+        height:auto;          /* モバイルでは自然比率 */
+        max-height:60vh;      /* はみ出し防止（任意） */
+      }
     }
   </style>
 </head>
@@ -90,7 +117,7 @@
 
 <main class="container">
   <section class="layout">
-    <!-- 左上：写真 -->
+    <!-- 左上：写真（長方形で2行分を占有） -->
     <div class="photo">
       <img class="avatar" src="/assets/profile.jpg" alt="Profile photo"/>
     </div>
@@ -110,10 +137,8 @@
       <div class="card">
         <h3>Profile</h3>
         <ul>
-          <li>2024–：Master
-            <br>(Department of Chemical System Engineering, The University of Tokyo)</li>
-          <li>2020–2024：Bachelar
-            <br>(Department of Engineering, Kyoto University)</li>
+          <li>2024–：Master<br>(Department of Chemical System Engineering, The University of Tokyo)</li>
+          <li>2020–2024：Bachelar<br>(Department of Engineering, Kyoto University)</li>
           <li>2017–2020：Gifu high school</li>
         </ul>
       </div>
@@ -124,9 +149,9 @@
       <div class="card">
         <h3>Research Motivation</h3>
         <ul>
-          <p style="margin-top:8px">  Human progress advances with storage—first grain and water, then data, now energy. My motivation is to advance our capacity to store energy through battery research. This is more than sustainability; better storage can expand what people and societies can do. 
-            <br>  As the energy gap between people and their devices closes, the fusion of human ability and machine function accelerates. At the societal level, as systems for renewable conversion and battery storage permeate infrastructure, previously overlooked ambient energy becomes a usable resource for all.
-            <br>  To achieve this future, rechargeable batteries must couple high energy density with chemistries based on earth-abundant elements, rigorous safety, and strong biocompatibility for on-body use. These requirements define my research focus: the design and mechanistic understanding of systems that store more energy, minimize self-discharge and degradation, and integrate safely into daily life.</p>
+          <p style="margin-top:8px">Human progress advances with storage—first grain and water, then data, now energy. My motivation is to advance our capacity to store energy through battery research. This is more than sustainability; better storage can expand what people and societies can do.
+            <br>　 As the energy gap between people and their devices closes, the fusion of human ability and machine function accelerates. At the societal level, as systems for renewable conversion and battery storage permeate infrastructure, previously overlooked ambient energy becomes a usable resource for all.
+            <br> 　To achieve this future, rechargeable batteries must couple high energy density with chemistries based on earth-abundant elements, rigorous safety, and strong biocompatibility for on-body use. These requirements define my research focus: the design and mechanistic understanding of systems that store more energy, minimize self-discharge and degradation, and integrate safely into daily life.</p>
         </ul>
       </div>
     </div>
